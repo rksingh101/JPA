@@ -1,0 +1,42 @@
+package example.jpa;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+import javax.transaction.Transactional;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+
+public class EmployeeTest {
+
+	/**
+	 * @param args
+	 */
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("beanconfig.xml");
+		EmployeeService service = ctx.getBean("service",EmployeeService.class);
+		
+		Address address1  = new Address(1, "Abhoynagar,Agartala");
+		Department dept1 = new Department(1, "StanC");
+		Employee emp = new Employee(50948, "RK", 100000, address1, dept1);
+		service.createEmployee(emp);
+		
+		Address address2  = new Address(2, "Pune");
+		Department dept2 = new Department(2, "RBC");
+		Employee emp2 = new Employee(50948, "Diyum", 140000, address1, dept2);
+		service.createEmployee(emp2);
+		
+		service.findEmployee(1)
+		
+		System.out.println("Persisted");
+		}
+
+}

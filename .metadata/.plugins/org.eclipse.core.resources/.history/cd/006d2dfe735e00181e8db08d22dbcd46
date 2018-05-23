@@ -1,0 +1,22 @@
+package example.jpa;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service(value = "service")
+public class EmployeeServiceImpl implements EmployeeService{
+	@Autowired
+	private EmployeeRepo repo;
+
+	@Override
+	public Employee createEmployee(Employee e) {
+		Employee e = createEmployee(e);
+		return e;
+	}
+
+	@Override
+	public Employee findEmployee(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
